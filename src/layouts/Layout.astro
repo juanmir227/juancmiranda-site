@@ -15,10 +15,12 @@ const { title } = Astro.props;
   <body>
     <!-- HEADER / NAV -->
     <header>
+      <nav>
+        <a href="/" class={Astro.url.pathname === "/" ? "active" : ""}>Sobre mí</a>
+        <a href="/posts/" class={Astro.url.pathname.startsWith("/posts") ? "active" : ""}>Posts</a>
+        <a href="/contacto/" class={Astro.url.pathname.startsWith("/contacto") ? "active" : ""}>Contacto</a>
+      </nav>
       <div id="netstats"></div>
-      <a href="/">Sobre mí</a>
-      <a href="/posts/">Posts</a>
-      <a href="/contacto/">Contacto</a>
     </header>
 
     <!-- PAGE CONTENT -->

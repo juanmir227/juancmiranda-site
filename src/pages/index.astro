@@ -3,24 +3,31 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Juan Cruz Miranda — HFT, C++ y baja latencia">
-  <section style="max-width: 900px; margin: 0 auto; padding: 3rem 1rem;">
-    <h1>Hola, soy <strong>Juan Cruz Miranda</strong></h1>
+  <section class="hero">
+    <h1>Desarrollo sistemas HFT de ultra baja latencia</h1>
 
-    <p style="font-size: 1.2rem; line-height: 1.7;">
-      Desarrollador de <strong>infraestructura de trading de alta frecuencia</strong> para 
-      mercados financieros. Me especializo en:
+    <p class="subtitle">
+      C++ • Optimización a nivel de CPU • FIX • WebSockets • BYMA • Market-Making
     </p>
 
-    <ul style="line-height: 1.6;">
-      <li>C++ y sistemas de baja latencia optimizados al nivel de caché</li>
-      <li>FIX, TLS, market data, order routing</li>
-      <li>Order books de profundidad fija y ejecución algorítmica</li>
-      <li>Arquitecturas single-thread / event-driven para HFT</li>
-    </ul>
+    <p class="description">
+      Construyo infraestructura de trading algorítmico con foco en micro-optimizaciones,
+      parsers FIX propios, manejo de libros de órdenes y redes de baja latencia.
+      Mi objetivo: <strong>reducir microsegundos</strong>.
+    </p>
 
-    <p style="font-size: 1.2rem; line-height: 1.7;">
-      En este sitio publico notas técnicas sobre HFT (diseño de estructuras, optimización de latencia,
-      políticas de cancelación, benchmarks reales), además de proyectos en los que trabajo.
+    <div class="hero-actions">
+      <a href="/posts/" class="cta-primary">Ver posts</a>
+      <a href="/contacto/" class="cta-secondary">Contacto</a>
+    </div>
+  </section>
+
+  <!-- Después del hero, mostramos el resto del contenido -->
+  <section style="margin-top: 3rem;">
+    <h2>Sobre este sitio</h2>
+    <p>
+      Aquí publico notas técnicas sobre estructuras de datos para HFT, optimización de latencia,
+      FIX y order routing, dashboards para trading y arquitectura real de bots de mercado.
     </p>
   </section>
 </Layout>
