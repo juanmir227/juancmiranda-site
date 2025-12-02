@@ -1,0 +1,311 @@
+/* Fuente */
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/700.css";
+
+html,
+body,
+* {
+  font-family: "JetBrains Mono", monospace !important;
+}
+/* Paleta */
+:root {
+  --bg: #0e1117;
+  --surface: #161b22;
+  --text: #e6e8eb;
+  --text-muted: #9da5b4;
+  --accent: #4ea8ff;
+  --radius: 12px;
+
+  font-family: "Inter", sans-serif;
+}
+
+/* Fondo principal */
+html,
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Layout base */
+main {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  flex: 1;
+}
+
+/* Navegación */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+}
+nav a {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: 0.2s;
+}
+nav a:hover {
+  color: var(--accent);
+}
+
+/* Títulos */
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: 18px;
+}
+h2 {
+  font-size: 1.6rem;
+  margin-bottom: 14px;
+}
+
+/* Cards de posts */
+article {
+  padding: 26px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  margin-bottom: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+article:hover {
+  transform: translateY(-3px);
+  border-color: rgba(78, 168, 255, 0.2);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Links */
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  margin-top: 80px;
+  padding: 32px 0;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+footer a {
+  color: var(--accent);
+}
+/* Fondo elegante con degradé sutil */
+html {
+  background: linear-gradient(180deg, #0b0e14 0%, #0d121c 40%, #0b0e14 100%);
+}
+
+/* Grilla sutil */
+html::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(
+      115deg,
+      rgba(80, 130, 255, 0.07) 1px,
+      transparent 1px
+    ),
+    linear-gradient(65deg, rgba(226, 230, 238, 0.07) 3px, transparent 6px);
+  background-size: 160px 160px;
+  opacity: 0.8;
+  pointer-events: none;
+  animation: gridMove 24s linear infinite;
+}
+@keyframes gridMove {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 180px 90px, -160px -80px;
+  }
+}
+
+/* Efecto "paquete de datos" al pasar por enlaces */
+a {
+  position: relative;
+}
+a:hover::after {
+  content: "";
+  position: absolute;
+  left: -6px;
+  right: -6px;
+  bottom: -2px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  animation: dataImpulse 0.55s ease-out;
+}
+@keyframes dataImpulse {
+  0% {
+    opacity: 0;
+    transform: scaleX(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(0.3);
+  }
+}
+article {
+  position: relative;
+  padding-left: 48px; /* compensar el nodo */
+}
+
+article::before {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background: var(--accent);
+  border-radius: 50%;
+  left: 18px;
+  top: 22px;
+  box-shadow: 0 0 14px rgba(78, 168, 255, 0.55);
+  transition: 0.2s;
+}
+
+article:hover::before {
+  transform: scale(1.15);
+}
+
+h1,
+h2 {
+  position: relative;
+}
+h1::after,
+h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 72px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  animation: netPulse 3.5s ease-in-out infinite;
+}
+@keyframes netPulse {
+  0%,
+  100% {
+    opacity: 0.25;
+    width: 42px;
+  }
+  50% {
+    opacity: 1;
+    width: 92px;
+  }
+}
+li::marker {
+  color: var(--accent);
+  text-shadow: 0 0 6px rgba(78, 168, 255, 0.5);
+}
+article {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+article:hover {
+  border: 1px solid rgba(78, 168, 255, 0.35);
+  box-shadow: 0 0 22px rgba(78, 168, 255, 0.18);
+}
+a,
+button {
+  transition: transform 0.18s cubic-bezier(0.33, 0.06, 0.34, 1.32);
+}
+a:hover,
+button:hover {
+  transform: translateX(2px);
+  filter: brightness(1.2);
+}
+
+/* Métricas animadas estilo HFT */
+#netstats {
+  position: fixed;
+  top: 12px;
+  right: 18px;
+  font-size: 0.82rem;
+  color: var(--accent);
+  opacity: 0.75;
+  pointer-events: none;
+  animation: pingCycle 9s linear infinite;
+}
+
+@keyframes pingCycle {
+  0% {
+    content: "ping=0.18ms • jitter=0.01ms • throughput=5.2Gbps";
+  }
+  25% {
+    content: "ping=0.21ms • jitter=0.04ms • throughput=4.9Gbps";
+  }
+  50% {
+    content: "ping=0.16ms • jitter=0.00ms • throughput=5.4Gbps";
+  }
+  75% {
+    content: "ping=0.20ms • jitter=0.03ms • throughput=5.0Gbps";
+  }
+  100% {
+    content: "ping=0.18ms • jitter=0.01ms • throughput=5.2Gbps";
+  }
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+header::after {
+  animation: heartbeat 5s ease-in-out infinite;
+}
+article:hover {
+  box-shadow: 0 0 18px rgba(78, 168, 255, 0.28),
+    0 0 48px rgba(78, 168, 255, 0.12);
+}
+/* Header / Nav */
+header {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1.5rem 1rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* Main */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+/* Quitar backgrounds opacos que tapaban el fondo animado */
+body,
+main,
+footer {
+  background: transparent !important;
+}
