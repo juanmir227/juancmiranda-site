@@ -1,17 +1,17 @@
 ---
-const site = "http://localhost:4321";
+const site = "https://juancmiranda.netlify.app";
 
 const {
   title = "Juan Cruz Miranda — HFT, C++ y baja latencia",
   description = "Desarrollo sistemas de trading de alta frecuencia, infraestructura de bajo nivel, C++ optimizado y algoritmos de ultra baja latencia.",
-  image = "/og-default.png",     // ruta relativa -> la convertimos en absoluta
+  image = "/og-default.png",
   url = Astro.url.href,
-  type = "website",              // "article" cuando viene desde posts
+  type = "website",
 } = Astro.props;
 
 const absoluteImage = image.startsWith("http")
   ? image
-  : site + image;
+  : `${site}${image}`;
 ---
 
 <!-- SEO GENERAL -->
@@ -24,11 +24,13 @@ const absoluteImage = image.startsWith("http")
 <meta property="og:description" content={description} />
 <meta property="og:type" content={type} />
 <meta property="og:url" content={url} />
-<meta property="og:image" content="https://juancmiranda.netlify.app/og-default.png" />
+<meta property="og:image" content={absoluteImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta property="og:site_name" content="Juan Cruz Miranda" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content="https://juancmiranda.netlify.app/og-default.png" />
+<meta name="twitter:image" content={absoluteImage} />
