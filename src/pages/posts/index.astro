@@ -1,23 +1,50 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { getCollection, render } from "astro:content";
+import { getCollection } from "astro:content";
 
-const posts = await getCollection("posts");
+const posts = (await getCollection("posts")).sort((a, b) => {
+  const da = a.data.pubDate ? a.data.pubDate.getTime() : 0;
+  const db = b.data.pubDate ? b.data.pubDate.getTime() : 0;
+  return db - da; // más reciente primero
+});
 ---
 
-<Layout title="Posts — Juan Cruz Miranda">
-  <h1>Posts</h1>
+<Layout title="Posts — HFT, C++ y baja latencia">
+  <section class="posts">
+    <h1>Posts técnicos</h1>
+    <p class="posts-intro">
+      Notas sobre diseño de infraestructura HFT, estructuras de datos para order books,
+      FIX, latencia, market making y optimización de sistemas de trading.
+    </p>
 
-  {posts
-    .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
-    .map(async (post) => {
-      const { Content } = await render(post);
-      return (
-        <article style="margin-bottom: 2rem;">
-          <h2><a href={`/posts/${post.slug}/`}>{post.data.title}</a></h2>
-          <p style="color:#777; margin: 0.2rem 0 1rem;">{post.data.description}</p>
-          <a href={`/posts/${post.slug}/`}>Leer más →</a>
+    <div class="posts-grid">
+      {posts.map((post) => (
+        <article class="post-card">
+          <a href={`/posts/${post.slug}/`} class="post-card-link">
+            <div class="post-card-meta">
+              {post.data.category && (
+                <span class={`pill pill-${post.data.category.toLowerCase()}`}>
+                  {post.data.category}
+                </span>
+              )}
+
+              {post.data.pubDate && (
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {post.data.pubDate.toISOString().slice(0, 10)}
+                </time>
+              )}
+            </div>
+
+            <h2>{post.data.title}</h2>
+
+            {post.data.description && (
+              <p class="post-card-desc">
+                {post.data.description}
+              </p>
+            )}
+          </a>
         </article>
-      );
-    })}
+      ))}
+    </div>
+  </section>
 </Layout>

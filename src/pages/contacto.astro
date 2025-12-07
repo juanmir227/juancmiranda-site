@@ -3,11 +3,246 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Contacto — Juan Cruz Miranda">
-  <h1>Contacto</h1>
-  <p>Podés comunicarte conmigo en:</p>
-  <ul>
-    <li>Email: <a href="mailto:tu_email@ejemplo.com">tu_email@ejemplo.com</a></li>
-    <li>LinkedIn: <a href="https://linkedin.com/in/tuUsuario" target="_blank">linkedin.com/in/tuUsuario</a></li>
-    <li>GitHub: <a href="https://github.com/tuUsuario" target="_blank">github.com/tuUsuario</a></li>
-  </ul>
+  <section class="contact">
+    <h1>Contacto</h1>
+    <!-- PARTE SUPERIOR: card + texto al lado -->
+    <div class="contact-top">
+      <!-- CARD: canales de contacto -->
+      <div class="contact-card contact-info">
+        <p>
+          Si querés hablar sobre HFT, diseño de infraestructura de trading, oportunidades
+          de trabajo o colaboración en proyectos, podés contactarme por mail, redes o
+          usando el formulario de abajo.
+        </p>
+
+        <ul class="contact-channels">
+          <!-- EMAIL -->
+          <li>
+            <a href="mailto:juanmir227@gmail.com" class="channel-link channel-link-email" data-email="juanmir227@gmail.com">
+              <span class="channel-icon channel-icon-mail">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="2" ry="2"></rect>
+                  <polyline points="4,7 12,12 20,7"></polyline>
+                </svg>
+              </span>
+              <span class="channel-text">
+                <span class="channel-label">Email</span>
+                <span class="channel-hint email-text">
+                  juanmir227@gmail.com
+                 </span>
+              </span>
+            </a>
+          </li>
+
+          <!-- GITHUB -->
+          <li>
+            <a
+              href="https://github.com/juanmir227"
+              target="_blank"
+              rel="noreferrer"
+              class="channel-link"
+            >
+              <span class="channel-icon channel-icon-github">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48 
+                      0-.24-.01-.87-.01-1.71-2.78.61-3.37-1.34-3.37-1.34
+                      -.45-1.14-1.11-1.44-1.11-1.44-.91-.62.07-.61.07-.61
+                      1 .07 1.53 1.05 1.53 1.05 .9 1.53 2.36 1.09 2.94.83
+                      .09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.95
+                      0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65
+                      0 0 .84-.27 2.75 1.02A9.56 9.56 0 0 1 12 6.8
+                      c.85 0 1.71.12 2.51.35 1.9-1.29 2.74-1.02 2.74-1.02
+                      .55 1.38.2 2.4.1 2.65 .64.7 1.03 1.6 1.03 2.69
+                      0 3.85-2.34 4.7-4.57 4.95 .36.31.68.92.68 1.86
+                      0 1.34-.01 2.42-.01 2.75 0 .27.18.58.69.48A10 10 0 0 0 12 2z"
+                  ></path>
+                </svg>
+              </span>
+              <span class="channel-text">
+                <span class="channel-label">GitHub</span>
+                <span class="channel-hint">
+                  /juanmir227
+                </span>
+              </span>
+            </a>
+          </li>
+
+          <!-- LINKEDIN -->
+          <li>
+            <a
+              href="https://www.linkedin.com/in/juancruzmiranda/"
+              target="_blank"
+              rel="noreferrer"
+              class="channel-link"
+            >
+              <span class="channel-icon channel-icon-linkedin">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="8" width="4" height="12" rx="1"></rect>
+                  <circle cx="5" cy="5" r="2"></circle>
+                  <path
+                    d="M10 8h3v2.2c.42-.78 1.3-1.4 2.7-1.4
+                      2.3 0 3.3 1.4 3.3 3.8V20h-4v-6
+                      c0-1.1-.4-1.8-1.3-1.8-.9 0-1.4.6-1.4 1.8V20h-4z"
+                  ></path>
+                </svg>
+              </span>
+              <span class="channel-text">
+                <span class="channel-label">LinkedIn</span>
+                <span class="channel-hint">
+                  /juancruzmiranda
+                </span>
+              </span>
+            </a>
+          </li>
+
+          <!-- X -->
+          <li>
+            <a
+              href="https://x.com/miranda_juanc"
+              target="_blank"
+              rel="noreferrer"
+              class="channel-link"
+            >
+              <span class="channel-icon channel-icon-x">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M5 4l6.2 7.6L5.3 20H8l4.1-5.7L16.8 20H19L12.7 12.1
+                      18.7 4H16l-3.7 5.1L9 4z"
+                  ></path>
+                </svg>
+              </span>
+              <span class="channel-text">
+                <span class="channel-label">X (Twitter)</span>
+                <span class="channel-hint">
+                  @miranda_juanc
+                </span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FORMULARIO ABAJO, A LO ANCHO -->
+    <div class="contact-card contact-form-card">
+
+      <!-- Mensaje de enviado -->
+      <div id="formSuccess" class="form-success" style="display:none;">
+        ✔ Mensaje enviado correctamente
+      </div>
+
+      <form 
+        id="contactForm"
+        action="https://formspree.io/f/xyzrjwqr"
+        method="POST"
+        class="contact-form"
+      >
+        <div class="field">
+          <label for="name">Nombre</label>
+          <input
+            id="name"
+            type="text"
+            name="name"
+            required
+          />
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            required
+          />
+        </div>
+
+        <div class="field">
+          <label for="subject">Asunto</label>
+          <input
+            id="subject"
+            type="text"
+            name="subject"
+          />
+        </div>
+
+        <div class="field">
+          <label for="message">Mensaje</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" class="cta-primary contact-submit">
+          Enviar mensaje
+        </button>
+      </form>
+    </div>
+  </section>
+  <script>
+    if (typeof window !== "undefined") {
+      const emailLink = document.querySelector(".channel-link-email");
+      if (emailLink) {
+        emailLink.addEventListener("click", async (event) => {
+          const email = emailLink.dataset.email;
+          if (!email) return;
+
+          // evitamos que intente abrir mailto de entrada
+          event.preventDefault();
+
+          try {
+            await navigator.clipboard.writeText(email);
+            emailLink.classList.add("copied");
+            setTimeout(() => emailLink.classList.remove("copied"), 1200);
+          } catch (err) {
+            // si falla el portapapeles, volvemos al comportamiento mailto:
+            window.location.href = emailLink.href;
+          }
+        });
+      }
+    }
+  </script>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contactForm");
+    const success = document.getElementById("formSuccess");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const data = new FormData(form);
+
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" }
+      });
+
+      if (response.ok) {
+        form.reset();
+        success.style.display = "block";
+        success.style.opacity = "0";
+
+        // Fade-in
+        requestAnimationFrame(() => {
+          success.style.transition = "opacity 0.4s ease";
+          success.style.opacity = "1";
+        });
+
+        // Fade-out y reactivar form
+        setTimeout(() => {
+          success.style.opacity = "0";
+          setTimeout(() => {
+            success.style.display = "none";
+          }, 400);
+        }, 2000);
+      }
+    });
+  });
+  </script>
+
 </Layout>

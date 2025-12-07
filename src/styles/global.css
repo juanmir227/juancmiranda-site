@@ -75,7 +75,6 @@ a:hover {
 
 /* Footer */
 footer {
-  margin-top: 80px;
   padding: 32px 0;
   text-align: center;
   color: var(--text-muted);
@@ -145,27 +144,6 @@ a:hover::after {
     transform: scaleX(0.3);
   }
 }
-article {
-  position: relative;
-  padding-left: 48px; /* compensar el nodo */
-}
-
-article::before {
-  content: "";
-  position: absolute;
-  width: 9px;
-  height: 9px;
-  background: var(--accent);
-  border-radius: 50%;
-  left: 18px;
-  top: 22px;
-  box-shadow: 0 0 14px rgba(78, 168, 255, 0.55);
-  transition: 0.2s;
-}
-
-article:hover::before {
-  transform: scale(1.15);
-}
 
 h1,
 h2 {
@@ -176,7 +154,7 @@ h2::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -6px;
+  bottom: -2px;
   width: 72px;
   height: 3px;
   background: linear-gradient(90deg, var(--accent), transparent);
@@ -298,14 +276,14 @@ nav a.active {
   color: var(--accent);
   opacity: 0.95;
   font-weight: 700;
-  text-shadow: 0 0 6px rgba(78, 168, 255, 0.45);
+  text-shadow: 0 0 4px rgba(78, 168, 255, 0.45);
   position: relative;
 }
 
 nav a.active::after {
   content: "";
   position: absolute;
-  left: -6px;
+  left: -2px;
   right: -6px;
   bottom: -4px;
   height: 2px;
@@ -451,4 +429,618 @@ footer {
 [data-perf].active::after {
   opacity: 0.8;
   transform: translateY(-4px);
+}
+
+/* ===== STACK TECNOLÓGICO ===== */
+.stack {
+  margin-top: 0rem;
+  padding: 0 0 0rem 0;
+}
+
+.stack h2 {
+  font-size: 1.9rem;
+  margin-bottom: 1rem;
+}
+
+.stack-intro {
+  color: var(--text-muted);
+  max-width: 720px;
+  margin-bottom: 2rem;
+}
+
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.8rem;
+}
+
+.stack-card {
+  background: rgba(0, 0, 0, 0.28);
+  border-radius: 12px;
+  padding: 1.5rem 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.18s ease-out, border-color 0.18s ease-out,
+    box-shadow 0.18s ease-out;
+}
+
+.stack-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top left,
+    rgba(78, 168, 255, 0.22),
+    transparent 55%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-out;
+}
+
+.stack-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(78, 168, 255, 0.55);
+  box-shadow: 0 0 20px rgba(78, 168, 255, 0.22);
+}
+
+.stack-card:hover::before {
+  opacity: 1;
+}
+
+.stack-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+  color: var(--accent);
+}
+
+.stack-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.stack-card li {
+  padding-left: 1.1rem;
+  position: relative;
+  margin-bottom: 0.35rem;
+  color: var(--text-muted);
+  font-size: 0.98rem;
+}
+
+.stack-card li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.9rem;
+  top: 0.1rem;
+}
+
+/* ===== LISTA DE POSTS ===== */
+.posts {
+  margin-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.posts h1 {
+  font-size: 2.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.posts-intro {
+  color: var(--text-muted);
+  max-width: 720px;
+  margin-bottom: 1.8rem;
+}
+
+.posts-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+/* Card de post */
+.post-card {
+  background: rgba(0, 0, 0, 0.26);
+  border-radius: 12px;
+  padding: 1.3rem 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.35);
+  transition: transform 0.18s ease-out, border-color 0.18s ease-out,
+    box-shadow 0.18s ease-out, background 0.18s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* apagamos el “nodo” global de article acá */
+.posts-grid .post-card::before {
+  display: none;
+}
+
+.post-card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.post-card:hover {
+  color: var(--accent);
+  transform: translateY(-3px);
+  border-color: rgba(78, 168, 255, 0.55);
+  box-shadow: 0 0 20px rgba(78, 168, 255, 0.22);
+  background: radial-gradient(
+      circle at top left,
+      rgba(78, 168, 255, 0.18),
+      transparent 55%
+    ),
+    rgba(0, 0, 0, 0.3);
+}
+
+/* Meta (categoría + fecha) */
+.post-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.post-card-meta time {
+  opacity: 0.85;
+}
+
+/* Pill de categoría */
+.pill {
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(78, 168, 255, 0.6);
+  color: var(--accent);
+  background: rgba(78, 168, 255, 0.13);
+}
+
+/* si querés matices por tipo */
+.pill-hft {
+  border-color: rgba(78, 168, 255, 0.8);
+}
+.pill-infra {
+  border-color: rgba(120, 220, 180, 0.8);
+}
+.pill-research {
+  border-color: rgba(220, 180, 120, 0.8);
+}
+
+.post-card h2 {
+  font-size: 1.8rem;
+  margin: 0.3rem 0 0.4rem;
+}
+
+.post-card-desc {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Desactivar subrayado y efecto "paquete de datos" en los links de las cards de posts */
+.posts-grid .post-card-link,
+.posts-grid .post-card-link:hover {
+  text-decoration: none;
+}
+
+/* Apagar la barra animada debajo del texto para esos links */
+.posts-grid .post-card-link::after,
+.posts-grid .post-card-link:hover::after {
+  content: none !important;
+}
+
+/* ===== CONTACTO ===== */
+
+/* ===== CONTACTO ===== */
+.contact {
+  margin-top: 3rem;
+  padding-bottom: 3.5rem;
+  max-width: 960px; /* ancho cómodo en desktop */
+  margin-left: auto; /* centrado horizontal */
+  margin-right: auto;
+}
+
+.contact h1 {
+  font-size: 2.1rem;
+  margin-bottom: 0.6rem;
+}
+
+.contact-intro {
+  color: var(--text-muted);
+  max-width: 740px;
+  margin-bottom: 2rem;
+}
+
+.contact-grid {
+  display: grid;
+  gap: 1.8rem;
+}
+
+/* info + form, 2 columnas en desktop */
+.contact-grid.contact-grid-two {
+  width: 100%;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.35fr);
+  align-items: flex-start;
+}
+
+/* En pantallas chicas, todo en una columna */
+@media (max-width: 900px) {
+  .contact-grid.contact-grid-two {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Cards contacto */
+.contact-card {
+  background: rgba(0, 0, 0, 0.26);
+  border-radius: 12px;
+  padding: 1.5rem 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.18s ease-out, border-color 0.18s ease-out,
+    box-shadow 0.18s ease-out, background 0.18s ease-out;
+}
+
+.contact-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(78, 168, 255, 0.55);
+  box-shadow: 0 0 20px rgba(78, 168, 255, 0.22);
+  background: radial-gradient(
+      circle at top left,
+      rgba(78, 168, 255, 0.18),
+      transparent 55%
+    ),
+    rgba(0, 0, 0, 0.3);
+}
+
+.contact-card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.7rem;
+}
+
+/* Mail destacado */
+.contact-highlight a {
+  font-size: 1.02rem;
+  font-weight: 600;
+}
+
+.contact-note {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.6rem;
+}
+
+/* Lista de redes */
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-list li {
+  margin-bottom: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+}
+
+.contact-list span {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.contact-list a {
+  font-size: 0.98rem;
+}
+
+/* Formulario */
+.contact-form-card {
+  grid-column: 1 / -1; /* que ocupe todo el ancho en desktop */
+}
+
+.contact-form-intro {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.1rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.field input,
+.field textarea {
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 0.55rem 0.7rem;
+  background: rgba(5, 7, 12, 0.9);
+  color: var(--text);
+  font-size: 0.95rem;
+  outline: none;
+  font-family: "JetBrains Mono", monospace;
+}
+.field textarea {
+  resize: vertical; /* solo permite estirar hacia arriba/abajo */
+  min-height: 120px; /* altura mínima cómoda */
+  max-height: 380px; /* opcional: evita que crezca infinito */
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(78, 168, 255, 0.5);
+}
+
+/* Botón del form reutilizando cta-primary pero adaptado */
+.contact-submit {
+  margin-top: 0.6rem;
+  align-self: flex-start;
+  cursor: pointer;
+  border: none;
+}
+
+/* Lista de canales con iconos en 2 columnas cómodas */
+.contact-channels {
+  list-style: none;
+  margin: 1.1rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem 1.1rem;
+}
+
+/* Desktop: 2 columnas */
+@media (min-width: 720px) {
+  .contact-channels {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile: 1 columna */
+@media (max-width: 719px) {
+  .contact-channels {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- NUEVO: convertir cada celda en layout horizontal --- */
+.contact-channels li {
+  display: flex;
+  align-items: center;
+}
+
+.channel-link {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem; /* separación entre icono y texto */
+  padding: 0.6rem 0.4rem;
+}
+
+.channel-link:hover {
+  border-color: rgba(78, 168, 255, 0.7);
+  box-shadow: 0 0 12px rgba(78, 168, 255, 0.25);
+  background: radial-gradient(
+      circle at left,
+      rgba(78, 168, 255, 0.18),
+      transparent 55%
+    ),
+    rgba(0, 0, 0, 0.35);
+  transform: translateX(2px);
+}
+
+/* Iconos */
+.channel-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: radial-gradient(
+    circle at center,
+    rgba(78, 168, 255, 0.22),
+    rgba(0, 0, 0, 0.9)
+  );
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(78, 168, 255, 0.45);
+}
+
+.channel-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--accent);
+  stroke-width: 1.6;
+  fill: none;
+}
+
+/* GitHub: lo dejamos relleno para que parezca logo clásico */
+.channel-icon-github svg {
+  stroke: none;
+  fill: var(--accent);
+}
+
+/* LinkedIn: mezcla stroke + fill leve */
+.channel-icon-linkedin svg rect,
+.channel-icon-linkedin svg circle {
+  stroke: none;
+  fill: var(--accent);
+}
+.channel-icon-linkedin svg path {
+  stroke: none;
+  fill: var(--accent);
+}
+
+/* Texto al lado del icono */
+.channel-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.channel-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.channel-hint {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+}
+.email-text {
+  user-select: text;
+  word-break: break-word;
+}
+/* Efecto de “Copiado” con fade-in / fade-out */
+.channel-link-email .channel-hint::after {
+  content: " • Copiado";
+  opacity: 0;
+  margin-left: 4px;
+  color: var(--accent);
+  font-size: 0.8rem;
+
+  /* transición suave */
+  transition: opacity 0.35s ease-out;
+}
+
+/* cuando se copia, aparece */
+.channel-link-email.copied .channel-hint::after {
+  opacity: 1;
+}
+
+/* Fila superior: card de canales + texto al lado */
+.contact-top {
+  display: flex;
+  gap: 1.8rem;
+  align-items: stretch;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* texto ocupa el resto */
+.contact-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* textos intro a la derecha */
+.contact-intro {
+  margin: 0 0 0.8rem 0;
+}
+
+.contact-intro-secondary {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* En pantallas chicas: todo apilado */
+@media (max-width: 900px) {
+  .contact-top {
+    flex-direction: column;
+  }
+
+  .contact-info {
+    max-width: 100%;
+    flex: 1;
+  }
+}
+/* Desactivar SOLO el efecto de subrayado animado en los enlaces de la grilla */
+.contact-channels a::after,
+.contact-channels a:hover::after {
+  content: none !important;
+  animation: none !important;
+}
+
+.form-success {
+  margin-bottom: 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  background: rgba(78, 168, 255, 0.15);
+  border: 1px solid rgba(78, 168, 255, 0.4);
+  color: var(--accent);
+  font-weight: 600;
+  text-align: center;
+  opacity: 0;
+}
+.post-body {
+  max-width: 1000px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.75;
+}
+
+.post-body pre {
+  background: #0d1117;
+  padding: 1rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.95rem;
+}
+
+.post-body code {
+  font-family: "JetBrains Mono", monospace;
+}
+/* ================================
+   FORZAR: desactivar efectos de hover en posts
+   ================================ */
+
+.post-body * {
+  transition: none !important; /* elimina animaciones de hover */
+}
+
+/* desactiva el efecto "paquete de datos" en los links del post */
+.post-body a::after {
+  content: none !important;
+}
+
+/* desactiva hover en links */
+.post-body a:hover {
+  transform: none !important;
+  filter: none !important;
+  text-decoration: underline !important;
+}
+
+/* desactivar hover en el contenedor del post */
+.post-body,
+.post-body:hover,
+.post-body article,
+.post-body article:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* desactivar glow o highlight */
+.post-body *:hover {
+  box-shadow: none !important;
+  animation: none !important;
 }
