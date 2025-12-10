@@ -4,6 +4,7 @@ description: "Cómo diseñar estructuras de datos cache-friendly, sin heap y apt
 pubDate: 2025-02-01
 category: "HFT"
 ogImage: true
+draft: true
 ---
 
 ## Introducción

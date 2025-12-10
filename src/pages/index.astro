@@ -2,58 +2,59 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Juan Cruz Miranda — HFT, C++ y baja latencia">
+<Layout title="J.C. Miranda — HFT, C++ y Baja Latencia">
   <section class="hero">
     <h1>
-      Soy <span class="accent-name">Juan Cruz Miranda</span><br />
-      Desarrollador de sistemas de trading de alta frecuencia
+      Soy <span class="accent-name">Juan Cruz Miranda</span>,<br />
+      diseño y desarrollo sistemas de trading de alta frecuencia
     </h1>
 
     <p class="subtitle"  data-perf="L3-misses ↓ 31%">
-      C++ • FIX • Arquitecturas single/multi-thread • Market-Making • Linux
+      Arquitectura de sistemas HFT • C++ de bajo nivel • FIX engines<br/> • Micro-optimizaciones de latencia
     </p>
 
     <p class="description" data-perf="latency=2.9µs">
-      Soy un desarrollador Argentino especializado en trading de alta frecuencia,
-      diseño de motores de órdenes, FIX, optimización de latencia y sistemas C++
-      afinados al nivel de caché L1/L2.
+      Físico argentino especializado en infraestructura de trading de alta frecuencia.
+      Trabajo en la construcción de pipelines de ejecución, diseño de estrategias para mercados electrónicos y desarrollo de motores de trading de ultra baja latencia.
     </p>
 
     <div class="hero-actions" data-perf="syscalls/s ↓ 84%">
-      <a href="/posts/" class="cta-primary">Ver posts técnicos</a>
+      <a href="/posts/" class="cta-primary">Ver Posts</a>
       <a href="/contacto/" class="cta-secondary">Contacto</a>
     </div>
   </section>
 
   <!-- NUEVA SECCIÓN: STACK TECNOLÓGICO -->
   <section class="stack">
-    <h2>Stack tecnológico</h2>
+    <h2>Áreas de especialización</h2>
     <div class="stack-grid">
       <div class="stack-card">
         <h3>Core HFT</h3>
         <ul>
-          <li>C++ (C++14/17/23) • STL mínima • estructuras propias</li>
-          <li>Optimización de caché (L1/L2) y layout de memoria</li>
-          <li>Parsers FIX propios • encoding binario</li>
+          <li>Desarrollo de infraestructura single-thread y multi-thread en C++</li>
+          <li>Motores FIX y pipelines de mensajería de baja latencia</li>
+          <li>Optimización de layout de memoria y caché</li>
+          <li>Parsers y feeds de mercado de alta frecuencia</li>
         </ul>
       </div>
 
       <div class="stack-card">
         <h3>Infra & Redes</h3>
         <ul>
-          <li>Linux (tuning de kernel, affinity, IRQs)</li>
-          <li>FIX over TLS • OpenSSL • WebSockets</li>
-          <li>Monitoreo de latencia end-to-end</li>
-          <li>Arquitecturas single-thread / event-driven</li>
+          <li>FIX sobre TLS con OpenSSL</li>
+          <li>Conectividad en tiempo real via WebSockets y APIs de mercado</li>
+          <li>Monitoreo de latencia end-to-end y profiling en producción</li>
+          <li>Entorno Linux: automatización, despliegue y operación diaria</li>
         </ul>
       </div>
 
       <div class="stack-card">
         <h3>Datos & Herramientas</h3>
         <ul>
-          <li>Python para research y análisis de mercado</li>
-          <li>Dashboards para métricas y market making</li>
-          <li>Bases de datos / time-series para logs de mercado</li>
+          <li>Python para research, análisis cuantitativo y visualización de datos</li>
+          <li>Dashboards para métricas y observabilidad de estrategias</li>
+          <li>Redis como base de datos de baja latencia para pipelines internos</li>
+          <li>Procesamiento de logs y análisis de series temporales</li>
         </ul>
       </div>
     </div>

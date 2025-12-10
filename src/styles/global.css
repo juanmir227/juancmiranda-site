@@ -309,7 +309,7 @@ footer {
 
 /* ==== HERO ==== */
 .hero {
-  margin-top: 4rem;
+  margin-top: 0rem;
   text-align: center;
   padding: 3rem 1rem;
 }
@@ -566,7 +566,6 @@ footer {
 
 .posts-intro {
   color: var(--text-muted);
-  max-width: 720px;
   margin-bottom: 1.8rem;
 }
 

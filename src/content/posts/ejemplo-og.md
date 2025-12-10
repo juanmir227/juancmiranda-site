@@ -4,6 +4,7 @@ description: "En este post describo las similitudes y diferencias entre ambas di
 pubDate: 2025-01-10
 category: "HFT"
 ogImage: true
+draft: true
 ---
 
 ## Introducción

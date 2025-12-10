@@ -4,6 +4,7 @@ description: "Ensayo visual para validar estilos de párrafos, código, tablas, 
 pubDate: 2025-02-20
 category: "Infra"
 ogImage: true
+draft: true
 ---
 
 ## Introducción
