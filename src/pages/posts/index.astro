@@ -2,11 +2,13 @@
 import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
-const posts = (await getCollection("posts")).sort((a, b) => {
-  const da = a.data.pubDate ? a.data.pubDate.getTime() : 0;
-  const db = b.data.pubDate ? b.data.pubDate.getTime() : 0;
-  return db - da; // más reciente primero
-});
+const posts = (await getCollection("posts"))
+  .filter((p) => p.data.draft !== true) // ⬅️ OCULTA POSTS EN DRAFT
+  .sort((a, b) => {
+    const da = a.data.pubDate ? a.data.pubDate.getTime() : 0;
+    const db = b.data.pubDate ? b.data.pubDate.getTime() : 0;
+    return db - da; // más reciente primero
+  });
 ---
 
 <Layout title="Posts — HFT, C++ y baja latencia">
